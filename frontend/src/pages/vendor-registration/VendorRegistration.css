@@ -1,0 +1,498 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0
+}
+
+body {
+    background: #edf3fb
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit
+}
+
+.vr-page {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    background: #edf3fb;
+    color: #102535;
+    font-family: Inter, sans-serif
+}
+
+.vr-frame {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100dvh;
+    background: #f6f8fb;
+    border-left: 1px solid #dce5ea;
+    border-right: 1px solid #dce5ea;
+    box-shadow: 0 0 40px rgba(20, 45, 60, .08)
+}
+
+.vr-header {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    height: 68px;
+    padding: 0 15px;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    align-items: center;
+    background: rgba(255, 255, 255, .96);
+    border-bottom: 1px solid #dfe7eb;
+    backdrop-filter: blur(14px)
+}
+
+.vr-back {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #dae4e8;
+    border-radius: 50%;
+    background: #fff;
+    color: #112d3c;
+    font-size: 18px;
+    cursor: pointer
+}
+
+.vr-header h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 14px
+}
+
+.vr-step-small {
+    text-align: right;
+    color: #73828a;
+    font-size: 7px
+}
+
+.vr-content {
+    padding: 18px 15px 34px
+}
+
+.vr-progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 8px;
+    font-weight: 700
+}
+
+.vr-progress {
+    height: 6px;
+    overflow: hidden;
+    border-radius: 99px;
+    background: #dde9f7
+}
+
+.vr-progress span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: #082b3e
+}
+
+.vr-card {
+    margin-top: 20px;
+    padding: 17px;
+    border: 1px solid #dfe7eb;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(23, 48, 65, .06)
+}
+
+.vr-section-title {
+    margin: 0 0 5px;
+    font-size: 15px
+}
+
+.vr-section-copy {
+    margin: 0 0 18px;
+    color: #6e7f88;
+    font-size: 8px;
+    line-height: 1.5
+}
+
+.vr-field {
+    display: block;
+    margin-bottom: 15px;
+    color: #203b49;
+    font-size: 9px;
+    font-weight: 700
+}
+
+.vr-field input,
+.vr-field select,
+.vr-field textarea {
+    width: 100%;
+    min-width: 0;
+    margin-top: 7px;
+    border: 1px solid #ced9df;
+    border-radius: 9px;
+    background: #fbfcfe;
+    color: #102b39;
+    font-size: 12px;
+    outline: 0
+}
+
+.vr-field input,
+.vr-field select {
+    height: 47px;
+    padding: 0 12px
+}
+
+.vr-field textarea {
+    min-height: 92px;
+    padding: 11px;
+    resize: vertical;
+    line-height: 1.5
+}
+
+.vr-field input:focus,
+.vr-field select:focus,
+.vr-field textarea:focus {
+    border-color: #0b8a68;
+    box-shadow: 0 0 0 3px rgba(11, 138, 104, .1);
+    background: #fff
+}
+
+.vr-field.invalid input,
+.vr-field.invalid select,
+.vr-field.invalid textarea {
+    border-color: #c94758
+}
+
+.vr-error {
+    display: block;
+    margin-top: 5px;
+    color: #b23547;
+    font-size: 8px;
+    font-weight: 500
+}
+
+.vr-phone {
+    display: grid;
+    grid-template-columns: 52px minmax(0, 1fr);
+    margin-top: 7px
+}
+
+.vr-phone span {
+    height: 47px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #ced9df;
+    border-right: 0;
+    border-radius: 9px 0 0 9px;
+    background: #f1f5f7;
+    color: #536975;
+    font-size: 11px
+}
+
+.vr-phone input {
+    margin: 0;
+    border-radius: 0 9px 9px 0
+}
+
+.vr-check {
+    margin: -3px 0 15px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #667983;
+    font-size: 8px
+}
+
+.vr-check input {
+    width: 14px;
+    height: 14px;
+    accent-color: #082b3e
+}
+
+.vr-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 10px
+}
+
+.vr-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px
+}
+
+.vr-primary,
+.vr-secondary {
+    min-height: 45px;
+    padding: 0 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border-radius: 11px;
+    font-size: 9px;
+    font-weight: 700;
+    cursor: pointer
+}
+
+.vr-primary {
+    border: 0;
+    background: #06283b;
+    color: #fff;
+    box-shadow: 0 8px 18px rgba(6, 40, 59, .18)
+}
+
+.vr-primary:disabled {
+    opacity: .55
+}
+
+.vr-secondary {
+    border: 1px solid #d5dfe4;
+    background: #fff;
+    color: #405863
+}
+
+.vr-full {
+    width: 100%
+}
+
+.vr-contact-card {
+    margin-top: 20px
+}
+
+.vr-upload {
+    position: relative;
+    min-height: 142px;
+    margin-top: 7px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #aebfd0;
+    border-radius: 11px;
+    background: #f0f5ff;
+    text-align: center;
+    cursor: pointer
+}
+
+.vr-upload input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer
+}
+
+.vr-upload-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #dae9ff;
+    color: #245c80;
+    font-size: 19px
+}
+
+.vr-upload strong {
+    margin-top: 10px;
+    font-size: 9px
+}
+
+.vr-upload small {
+    margin-top: 5px;
+    color: #7c8b94;
+    font-size: 7px
+}
+
+.vr-preview {
+    max-width: 100%;
+    max-height: 110px;
+    border-radius: 9px;
+    object-fit: contain
+}
+
+.vr-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 7px
+}
+
+.vr-chip {
+    min-height: 29px;
+    padding: 5px 10px;
+    border: 1px solid #ccd8de;
+    border-radius: 99px;
+    background: #fff;
+    color: #415964;
+    font-size: 8px;
+    cursor: pointer
+}
+
+.vr-chip.active {
+    border-color: #0b8a68;
+    background: #e8f8f1;
+    color: #087553
+}
+
+.vr-custom {
+    display: flex;
+    gap: 7px;
+    margin-top: 9px
+}
+
+.vr-custom input {
+    margin: 0
+}
+
+.vr-custom button {
+    min-width: 92px;
+    border: 1px dashed #7e94a0;
+    border-radius: 9px;
+    background: #fff;
+    color: #173e52;
+    font-size: 8px
+}
+
+.vr-subtitle {
+    margin: 19px 0 10px;
+    font-size: 10px
+}
+
+.vr-doc-row {
+    position: relative;
+    min-height: 47px;
+    margin-top: 8px;
+    padding: 8px 9px;
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid #d6e0e5;
+    border-radius: 9px;
+    background: #f4f7ff
+}
+
+.vr-doc-row input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer
+}
+
+.vr-doc-row svg {
+    font-size: 14px
+}
+
+.vr-doc-row span {
+    overflow: hidden;
+    font-size: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.vr-doc-row em {
+    padding: 4px 8px;
+    border: 1px solid #2c4655;
+    border-radius: 99px;
+    background: #fff;
+    color: #173442;
+    font-size: 7px;
+    font-style: normal
+}
+
+.vr-consents {
+    margin-top: 17px
+}
+
+.vr-consent {
+    margin-top: 9px;
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    color: #657985;
+    font-size: 8px
+}
+
+.vr-consent input {
+    width: 14px;
+    height: 14px;
+    accent-color: #082b3e
+}
+
+.vr-message {
+    margin-top: 12px;
+    padding: 10px;
+    border: 1px solid #efc7ce;
+    border-radius: 9px;
+    background: #fff3f5;
+    color: #ad3044;
+    font-size: 8px;
+    line-height: 1.45
+}
+
+.vr-saving {
+    margin-top: 12px;
+    color: #087553;
+    font-size: 8px
+}
+
+.vr-state {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f6f8fb;
+    font-family: Inter, sans-serif;
+    text-align: center
+}
+
+.vr-loader {
+    width: 42px;
+    height: 42px;
+    border: 4px solid #dce7eb;
+    border-top-color: #0b8a68;
+    border-radius: 50%;
+    animation: vrspin .8s linear infinite
+}
+
+@keyframes vrspin {
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@media(max-width:350px) {
+    .vr-content {
+        padding-left: 11px;
+        padding-right: 11px
+    }
+
+    .vr-card {
+        padding: 14px
+    }
+
+    .vr-grid {
+        grid-template-columns: 1fr
+    }
+};

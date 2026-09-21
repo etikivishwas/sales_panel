@@ -15,6 +15,9 @@ import Profile from "./pages/Profile";
 import Support from "./pages/Support";
 import CommissionHistory from "./pages/CommissionHistory";
 import AccountSettings from "./pages/AccountSettings";
+import VendorRegistrationStep1 from "./pages/vendor-registration/VendorRegistrationStep1";
+import VendorRegistrationStep2 from "./pages/vendor-registration/VendorRegistrationStep2";
+import VendorRegistrationStep3 from "./pages/vendor-registration/VendorRegistrationStep3";
 
 const ProtectedPage = ({ children }) => {
   return (
@@ -103,6 +106,18 @@ export default function App() {
           </ProtectedPage>
         }
       />
+      <Route path="/vendor-registration"
+        element={
+          <ProtectedPage><VendorRegistrationStep1 /></ProtectedPage>
+        } />
+      <Route path="/vendor-registration/contact"
+        element={
+          <ProtectedPage><VendorRegistrationStep2 /></ProtectedPage>
+        } />
+      <Route path="/vendor-registration/details"
+        element={
+          <ProtectedPage><VendorRegistrationStep3 /></ProtectedPage>
+        } />
 
       <Route
         path="*"

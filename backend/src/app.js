@@ -4,6 +4,7 @@ const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const salesRoutes = require("./routes/salesRoutes");
 const profileRoutes = require("./routes/profileRoutes");
+const salesVendorRegistrationRoutes = require("./routes/salesVendorRegistrationRoutes");
 
 const app = express();
 
@@ -30,6 +31,8 @@ app.use("/api/sales/auth", authRoutes);
 app.use("/api/sales", salesRoutes);
 
 app.use("/api/sales/profile", profileRoutes);
+
+app.use("/vendor-registration", salesVendorRegistrationRoutes);
 
 // 404 - Route not found
 app.use((req, res) => {

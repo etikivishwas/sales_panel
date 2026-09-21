@@ -112,3 +112,23 @@ export const changeSalesPassword = (payload) => {
   });
 };
 
+export const getVendorRegistrationCategories = () => {
+  return req("/vendor-registration/categories");
+};
+
+export const completeSalesVendorRegistration = (formData) => {
+  const accessToken = token();
+  return fetch(`${BASE}/vendor-registration`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+    },
+    body: formData,
+  }).then(async (response) => {
+    const result = await response.json().catch(() => ({ message: "Invalid server response." }));
+    if (!response.ok) throw new Error(result?.message || "Vendor registration failed.");
+    return result;
+  });
+};
+

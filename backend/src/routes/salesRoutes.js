@@ -9,9 +9,18 @@ const { getLeads } = require("../controllers/leadController");
 const withdrawalController = require("../controllers/withdrawalController");
 const salesCommissionController = require("../controllers/salesCommissionController");
 const accountSettingsController = require("../controllers/accountSettingsController");
+const salesVendorRegistrationRoutes =
+  require(
+    "./salesVendorRegistrationRoutes"
+  );
 const router = express.Router();
 
 router.use(auth);
+
+router.use(
+  "/vendor-registration",
+  salesVendorRegistrationRoutes
+);
 
 router.get(
   "/account-settings",
