@@ -1,6 +1,6 @@
 const BASE = (
   import.meta.env.VITE_API_URL ||
-  "http://localhost:5000/api/sales"
+  "http://localhost:5002/api/sales"
 ).replace(/\/$/, "");
 
 export const token = () => {
@@ -72,6 +72,35 @@ export const vendors = (query = "") => {
   const queryString = query ? `?${query}` : "";
   return req(`/vendors${queryString}`);
 };
+
+export const getVendorDetails = (vendorId) => {
+  return req(`/vendors/${vendorId}`);
+};
+
+export const getVendorDocument = async (documentId) => {
+  const accessToken = token();
+
+  const response = await fetch(
+    `${BASE}/vendor-registration/documents/${documentId}`,
+    {
+      method: "GET",
+      headers: {
+        Accept: "*/*",
+        ...(accessToken
+          ? { Authorization: `Bearer ${accessToken}` }
+          : {}),
+      },
+      redirect: "follow",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Unable to open this document.");
+  }
+
+  return response.blob();
+};
+
 
 export const leads = (query = "") => {
   const queryString = query ? `?${query}` : "";

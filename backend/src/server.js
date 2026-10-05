@@ -3,7 +3,7 @@ require("dotenv").config();
 const app = require("./app");
 const { pool, testConnection } = require("./config/db");
 
-const port = Number(process.env.PORT) || 5000;
+const port = Number(process.env.PORT) || 5002;
 
 let server;
 
@@ -37,7 +37,7 @@ async function stop() {
 
   process.exit(0);
 }
-
+console.log("VENDOR_PANEL_URL =", process.env.VENDOR_PANEL_URL);
 // Handle termination signals
 process.on("SIGINT", stop);
 process.on("SIGTERM", stop);
