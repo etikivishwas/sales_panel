@@ -18,6 +18,7 @@ import AccountSettings from "./pages/AccountSettings";
 import VendorRegistrationStep1 from "./pages/vendor-registration/VendorRegistrationStep1";
 import VendorRegistrationStep2 from "./pages/vendor-registration/VendorRegistrationStep2";
 import VendorRegistrationStep3 from "./pages/vendor-registration/VendorRegistrationStep3";
+import VendorReview from "./pages/VendorReview";
 
 const ProtectedPage = ({ children }) => {
   return (
@@ -52,6 +53,16 @@ export default function App() {
           </ProtectedPage>
         }
       />
+
+      <Route
+  path="/vendors/:vendorId"
+  element={
+    <ProtectedPage>
+      <VendorReview />
+    </ProtectedPage>
+  }
+/>
+
 
       <Route
         path="/leads"

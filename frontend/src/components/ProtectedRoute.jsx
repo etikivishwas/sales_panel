@@ -9,9 +9,8 @@ export default function ProtectedRoute({
   const location = useLocation();
 
   const accessToken =
-    localStorage.getItem(
-      "salesAccessToken"
-    );
+    localStorage.getItem("salesAccessToken") ||
+    sessionStorage.getItem("salesAccessToken");
 
   if (!accessToken) {
     return (

@@ -4,7 +4,7 @@ const auth = require("../middleware/auth");
 const {
   getDashboard,
 } = require("../controllers/dashboardController");
-const { getVendors } = require("../controllers/vendorController");
+const { getVendors,getVendorDetails } = require("../controllers/vendorController");
 const { getLeads } = require("../controllers/leadController");
 const withdrawalController = require("../controllers/withdrawalController");
 const salesCommissionController = require("../controllers/salesCommissionController");
@@ -39,6 +39,7 @@ router.put(
 
 router.get("/dashboard", getDashboard);
 router.get("/vendors", getVendors);
+router.get("/vendors/:vendorId", getVendorDetails);
 router.get("/leads", getLeads);
 router.get("/commissions", salesCommissionController.getHistory);
 router.get(

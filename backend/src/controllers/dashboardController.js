@@ -154,24 +154,27 @@ exports.getDashboard = async (
      * vendors.is_active
      * vendors.created_at
      */
-    const [recentVendors] =
-      await pool.query(
-        `SELECT
-           id,
-           name,
-           service_type,
-           is_active,
-           created_at
+    const [recentVendors] = await pool.query(
+  `SELECT
+     v.id,
+     v.name,
+     v.service_type,
+     v.is_verified,
+     v.created_at,
+     vvs.status AS verification_status
 
-         FROM vendors
+   FROM vendors v
 
-         WHERE sales_executive_id = ?
+   LEFT JOIN vendor_verification_submissions vvs
+     ON vvs.vendor_id = v.id
 
-         ORDER BY created_at DESC
+   WHERE v.sales_executive_id = ?
 
-         LIMIT 4`,
-        [salesExecutiveId]
-      );
+   ORDER BY v.created_at DESC
+
+   LIMIT 4`,
+  [salesExecutiveId]
+);
 
     const executiveName = String(
       executive.name || "Executive"
@@ -193,9 +196,12 @@ exports.getDashboard = async (
           vendor.name
         ),
 
-        status: vendor.is_active
-          ? "approved"
-          : "pending",
+        status:
+  vendor.verification_status === "approved"
+    ? "approved"
+    : vendor.verification_status === "rejected"
+      ? "rejected"
+      : "pending",
 
         createdAt:
           vendor.created_at,
