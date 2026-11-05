@@ -18,7 +18,7 @@ let server;
     await testConnection();
 
     // Start the server
-    server = app.listen(port, () => {
+    server = app.listen(port, "127.0.0.1", () => {
       console.log(`Sales API: http://localhost:${port}`);
     });
   } catch (e) {

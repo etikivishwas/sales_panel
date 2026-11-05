@@ -1,0 +1,5 @@
+
+# Environment files - never commit credentials
+.env
+.env.*
+!.env.example

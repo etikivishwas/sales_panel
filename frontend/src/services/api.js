@@ -81,7 +81,7 @@ export const getVendorDocument = async (documentId) => {
   const accessToken = token();
 
   const response = await fetch(
-    `${BASE}/vendor-registration/documents/${documentId}`,
+    `/vendor-registration/documents/${documentId}`,
     {
       method: "GET",
       headers: {
